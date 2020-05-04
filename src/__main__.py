@@ -53,7 +53,7 @@ class LUTHER:
 
         # record the location of each newline in a queue so we can know what line we're on.
         newline_indices = deque()
-        newline_indices.appendleft(-1)  # needed to make sure character line position works
+        newline_indices.appendleft(-1)  # needed to make sure character line position works on the first line
         for i, char in zip(range(len(self.input_text)), self.input_text):
             if char == '\n':
                 newline_indices.appendleft(i)
@@ -128,7 +128,7 @@ def convert_escaped_chars(input_str: str) -> str:
     """
 
     output_str = ""
-    allowed_char = re.compile("[A-Za-wy-z0-9]")
+    allowed_char = re.compile('[A-Za-wy-z0-9]')
     for char in input_str:
         if allowed_char.match(char):
             output_str += char

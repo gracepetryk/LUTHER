@@ -1,5 +1,6 @@
 from enum import Enum
 from typing import List
+import sys
 
 
 class DFA:
@@ -51,6 +52,9 @@ class DFA:
             else:
                 # return when EOF reached
                 return
+
+        if current_char not in self.alphabet:
+            sys.exit(1)
 
     def _reset(self):
         self.longestPreviousMatch = ""
